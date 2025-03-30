@@ -21,10 +21,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
+    justify-content: center;
+    align-items: center;
 }
 
 .window {

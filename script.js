@@ -40,11 +40,11 @@ document.addEventListener('DOMContentLoaded', function () {
 const canvas = document.getElementById('snowCanvas');
 const ctx = canvas.getContext('2d');
 
-// Set canvas to full window size
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
+
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
@@ -52,16 +52,14 @@ class Snowflake {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 2 + 1; // Random size between 1-5
-        this.speed = Math.random() * 0.5 + 0.25; // Random speed between 1.5-4.5
-        this.wind = Math.random() * 0.4 - 0.25; // Random horizontal drift
+        this.radius = Math.random() * 2 + 1;
+        this.speed = Math.random() * 0.5 + 0.25;
+        this.wind = Math.random() * 0.4 - 0.25;
     }
 
     update() {
         this.y += this.speed;
         this.x += this.wind;
-
-        // Reset snowflake when it goes off screen
         if (this.y > canvas.height) {
             this.y = Math.random() * -canvas.height;
             this.x = Math.random() * canvas.width;
