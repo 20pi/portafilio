@@ -52,7 +52,7 @@ class Snowflake {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * -canvas.height;
-        this.radius = Math.random() * 2 + 1;
+        this.radius = Math.random() * 1 + 1;
         this.speed = Math.random() * 0.5 + 0.25;
         this.wind = Math.random() * 0.4 - 0.25;
     }
