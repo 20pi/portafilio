@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --window-color: #0a0a0aff;
+    --background-color: hsl(0, 0%, 10%);
+    --border-color: #323232ff;
+    --text-color: hsl(340, 0%, 90%);
+
+    --title-bar-text-color: #ffffff;
+    --titlebar-height: 23px;
+    --component-title-height: 0.95rem;
+    --component-title-color: rgb(129, 129, 129);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+.window {
+    position: relative;
+    background-color: var(--window-color);
+    width: 100%;
+    height: fit-content;
+    max-width: 500px;
+    border: 1px solid var(--border-color);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cat */
+.window > img {
+    position: absolute;
+    top: -44px;
+    right: 20px;
+    max-height: 80px;
+    z-index: 2;
+}
+
+/* Titlebar */
+
+.title-bar {
+    background-color: black;
+    height: var(--titlebar-height);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: var(--title-bar-text-color);
+}
+
+.title-bar > * {
+    margin: 0;
+}
+
+.window-title {
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+#title-icon {
+    margin-right: 5px;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+/* Window main content */
+
+.window-content {
+    height: fit-content;
+    display: flex;
+}
+
+.text {
+    color: var(--text-color);
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+/* Window left content */
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 5px;
+}
+
+/* Window right container */
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 5px;
+    padding-left: 0px;
+}
+
+/* Profile picture */
+
+.profile-picture {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+}
+
+/* Component */
+
+.component-container {
+    position: relative;
+    margin-top: calc(var(--component-title-height) / 2 + 5px);
+}
+
+.component {
+    width: 100%;
+    padding: 15px 10px 10px 10px;
+    border: 1px solid var(--border-color);
+    list-style-type: none;
+    margin: 0;
+}
+
+.component-title {
+    position: absolute;
+    top: -9px;
+    left: 5px;
+    padding: 0 2px;
+    background-color: var(--window-color);
+    color: var(--component-title-color);
+    font-size: var(--component-title-height);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Socials */
+.socials {
+    display: flex;
+}
+
+.socials i {
+    font-size: 25px;
+    margin-right: 5px;
+    color: hsl(0, 0%, 73%);
+    transition: color 0.1s ease-in-out;
+}
+
+.socials i:hover {
+    cursor: pointer;
+    color: white;
+}
+
+/* Mouse follow text */
+.follow-text {
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.fade-out {
+    animation: fadeOut 1s;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+/* Text formatting */
+
+p,
+h2 {
+    margin: 0;
+}
+
+h2 {
+    margin-bottom: 4px;
+}
+
+a {
+    color: #96705b;
+}
+
+/* Background */
+
+#snowCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+@media (max-width: 600px) {
+    :root {
+        --component-title-height: 0.85rem;
+    }
+
+    .text {
+        font-size: 0.8rem;
+    }
+
+    .left {
+        width: 35%;
+    }
+}
